@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src='jquery.min.js'></script>
+    <script src='/js/skrypt.js'></script>
+  </head>
+  <body>
+   <div class='wrap'>
+      <div id="place">
+        <h2>Witam w <%= title %>!</h2>
+        <table>
+          <tr>
+            <td>Liczba elementów w rzędzie:</td>
+            <td><input type="text" id="size" value='<%= size %>'/></td>
+          </tr>
+          <tr>
+            <td>Liczba używanych „kolorów”:</td>
+            <td><input type="text" id="dim" value='<%= dim %>'/></td>
+          </tr>
+          <tr>
+            <td>Maxymalna liczba ruchów:<br/><span class='info'>(0 dla nieograniczonej ilości ruchów)</span></td>
+            <td><input type="text" id="max" value='<%= max %>'/></td>
+          </tr>
+          <tr>
+            <td><button id="start">Zacznij gre!</button></td>
+          </tr> 
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
