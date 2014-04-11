@@ -1,7 +1,4 @@
 $(function () {
-	//TODO LIST
-	//1. usunac listnery gdy sie zmienia plansza
-
 	//--------HELPERS--------------------------------------------------------------------------------
 	var gameSize = 0;
 	
@@ -92,6 +89,7 @@ $(function () {
 			head += "<th>" + i + ".</th>";
 			inputs += "<td><input type='text' class='gameInput' name='"+i+"' /></td>";
 		}
+		inputs += "<td id='hint'><b>Wskazówki</b></td>"
 
 		//zmieniamy kod głównego diva gry
 		var source = "<button id='restart'>Zacznij od nowa</button> Próby: <span id='attempts'>0</span> <div id='msg'><h3 id='msgH3'>"+msg+"</h3></div>"+
@@ -112,7 +110,7 @@ $(function () {
 	}
 
 	//naciskamy Start Gry
-	$('#start').click(function(e){
+	var startClick = function(e){
 		//pobieramy i ustawiamy wartości z pól inicjalizujacych
 	    var size="0";
 	    var dim="0";
@@ -141,5 +139,7 @@ $(function () {
                     $('#place').html("Wystąpil błąd przy tworzeniu nowej gry!");
         	}
 	    });
-	});
+	}
+	//event
+	$('#start').click(startClick);
 });
