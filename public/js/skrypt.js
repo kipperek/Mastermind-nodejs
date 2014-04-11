@@ -41,8 +41,6 @@ $(function () {
 		} else {
 			$('#gameWrap').html("");
 		}
-
-
 	}
 
 	var zgadujClick = function(e) {
