@@ -64,19 +64,28 @@ exports.mark = function (req, res) {
             win = false, fail = false, whiteDot = 0, blackDot = 0;
         
         //----Logika gierki----------------------------------------
-        var dane = req.session.puzzle.data
+        var dane = req.session.puzzle.data;
+        var oc = new Array(), ocM = new Array();
         //--Dotki----
+        //TODO!!!!!!!!!!!!!!!!
         for(var i = 0; i < move.length; i++){
-            if(move[i] == dane[i])
+            if(move[i] == dane[i]){
                 blackDot++;
-            else
-                for(var j = 0; j < dane.length; j++){
-                    if(move[i] == dane[j]){
-                        whiteDot++;
-                        break;
-                    }
-                }
+                oc[i] = true;
+                ocM[i] = true;
+            }
         }
+
+        for(var i = 0; i < move.length; i++)
+            for(var j = 0; j < dane.length; j++){
+                if(move[i] == dane[j] && !oc[i] && !ocM[j]){
+                    whiteDot++;
+                    oc[i] = true;
+                    ocM[j] = true;
+                    break;
+                }
+            }
+        //////////////////////////////////
        
         //--Mesedż----
         var bad = "Kiepsko!",
